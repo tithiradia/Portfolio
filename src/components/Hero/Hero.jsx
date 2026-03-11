@@ -104,7 +104,7 @@ const Hero = () => {
           <div className="image-container">
             <div className="image-bg"></div>
             <img 
-              src="/my_image.jpeg" 
+              src="/my_image.jpg" 
               alt="Tithi Radia" 
               className="profile-image"
             />
