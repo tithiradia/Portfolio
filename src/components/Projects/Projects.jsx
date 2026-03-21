@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { motion } from 'framer-motion'
-import { FaGithub, FaExternalLinkAlt, FaCode } from 'react-icons/fa'
+import { motion, AnimatePresence } from 'framer-motion'
+import { FaGithub, FaExternalLinkAlt, FaCode, FaPlay, FaTimes } from 'react-icons/fa'
 import './Projects.css'
 
 const Projects = () => {
   const [filter, setFilter] = useState('all')
+  const [selectedVideoProject, setSelectedVideoProject] = useState(null)
 
   const projects = [
     {
@@ -15,6 +16,7 @@ const Projects = () => {
       tags: ['MongoDB', 'Flutter', 'Python', 'JavaScript', 'IndicTrans2', 'Levenshtein'],
       github: 'https://github.com/Puja-Rachchh/VaaniMitra_Mobile_App',
       demo: null,
+      videoUrl: 'https://drive.google.com/file/d/1zBxZ3xZlQyUbLdiYJZ5ETifvFWeFH5Jd/view?usp=drivesdk',
       featured: true,
       highlights: [
         'Integrated IndicTrans2 translation model for accurate multi-language translation',
@@ -23,35 +25,37 @@ const Projects = () => {
       ]
     },
     {
-      title: 'AI-Powered Feedback Analysis System',
+      title: 'Voicely – AI Feedback Collection & Analysis Chatbot',
       category: 'ai',
-      description: 'An intelligent automation system built with n8n that collects user feedback through interactive conversations, analyzes sentiment and quality, and provides actionable improvement suggestions.',
+      description: 'An AI-powered feedback collection chatbot built with n8n and a custom web-based chat interface to enable real-time, conversational feedback gathering and automated analysis.',
       image: 'feedback',
-      tags: ['n8n', 'Python', 'NLP', 'Automation', 'AI', 'Sentiment Analysis'],
+      tags: ['n8n', 'HTML', 'CSS', 'JavaScript', 'Chatbot', 'Automation'],
       github: 'https://github.com',
       demo: null,
+      videoUrl: 'https://drive.google.com/file/d/1xLts0ZkaS8nzdt47y9lviXc30nhm2aMs/view?usp=drive_link',
       featured: true,
       highlights: [
-        'Automated conversational feedback collection with intelligent question flow',
-        'AI-powered sentiment analysis to categorize feedback quality',
-        'Generated actionable insights and improvement recommendations',
-        'Seamless workflow automation reducing manual analysis time'
+        'Developed conversational chatbot flows in n8n for structured, multi-step feedback collection',
+        'Integrated an AI agent with session-based memory to handle issues, suggestions, and follow-up questions',
+        'Implemented webhook-based communication and Google Sheets integration for organized feedback storage',
+        'Enabled structured reporting and actionable insights through automated feedback summarization'
       ]
     },
     {
-      title: 'Image Captioning with Deep Learning',
+      title: 'Intern Activity Intelligence & Productivity Analytics Platform',
       category: 'ai',
-      description: 'Advanced deep learning model that generates descriptive captions for images using VGG16 and LSTM networks, trained on the Flickr8k dataset achieving impressive BLEU scores.',
+      description: 'An end-to-end analytics platform to track and evaluate intern productivity from daily activity reports using ML-ready features and a data warehouse for reporting.',
       image: 'imagecaption',
-      tags: ['Python', 'TensorFlow', 'CNN', 'LSTM', 'NLP', 'VGG16'],
+      tags: ['Python', 'Machine Learning', 'Data Engineering', 'SQL', 'Pandas', 'PySpark', 'Data Warehouse'],
       github: 'https://github.com',
       demo: null,
+      videoUrl: '',
       featured: true,
       highlights: [
-        'Trained VGG16 model for robust image feature extraction',
-        'Implemented CNN-LSTM architecture for image-to-text generation',
-        'Achieved BLEU score of 0.546880 over 45 training epochs',
-        'Applied NLP techniques for natural language caption generation'
+        'Designed a unified productivity dataset of 16,856+ records across 20 interns over 72 days',
+        'Engineered 10+ analytical features including score_pct, completion_rate, score_vs_cohort, and activity_category',
+        'Performed deep EDA to uncover performance gaps across technologies and identify data quality issues',
+        'Built ML-ready features and a Star Schema warehouse for scalable performance and productivity reporting'
       ]
     }
   ]
@@ -63,6 +67,14 @@ const Projects = () => {
   const filteredProjects = filter === 'all' 
     ? projects 
     : projects.filter(project => project.category === filter)
+
+  const getVideoEmbedUrl = (url) => {
+    if (!url) return ''
+    if (url.includes('drive.google.com')) {
+      return url.replace('/view', '/preview')
+    }
+    return url
+  }
 
   return (
     <section id="projects" className="projects">
@@ -171,10 +183,60 @@ const Projects = () => {
                     <span key={idx} className="project-tag">{tag}</span>
                   ))}
                 </div>
+
+                {project.videoUrl && (
+                  <button
+                    className="project-video-btn"
+                    onClick={() => setSelectedVideoProject(project)}
+                  >
+                    <FaPlay />
+                    <span>Watch Video</span>
+                  </button>
+                )}
               </div>
             </motion.div>
           ))}
         </div>
+
+        <AnimatePresence>
+          {selectedVideoProject && (
+            <motion.div
+              className="project-video-modal-overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedVideoProject(null)}
+            >
+              <motion.div
+                className="project-video-modal"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  className="project-video-modal-close"
+                  onClick={() => setSelectedVideoProject(null)}
+                  aria-label="Close video"
+                >
+                  <FaTimes />
+                </button>
+
+                <h3 className="project-video-title">{selectedVideoProject.title}</h3>
+
+                <div className="project-video-wrapper">
+                  <iframe
+                    src={getVideoEmbedUrl(selectedVideoProject.videoUrl)}
+                    title={selectedVideoProject.title}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   )
