@@ -16,7 +16,7 @@ const Projects = () => {
       tags: ['MongoDB', 'Flutter', 'Python', 'JavaScript', 'IndicTrans2', 'Levenshtein'],
       github: 'https://github.com/Puja-Rachchh/VaaniMitra_Mobile_App',
       demo: null,
-      videoUrl: 'https://drive.google.com/file/d/1zBxZ3xZlQyUbLdiYJZ5ETifvFWeFH5Jd/view?usp=drivesdk',
+      videoUrl: 'https://drive.google.com/file/d/1kAF3qUZW8DA1uEXC3eyFHM2zH-81-9UB/view?usp=drivesdk',
       featured: true,
       highlights: [
         'Integrated IndicTrans2 translation model for accurate multi-language translation',
