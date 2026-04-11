@@ -32,7 +32,6 @@ const Certificates = () => {
       title: 'Machine Learning with Python',
       issuer: 'IBM (Coursera)',
       date: 'July 2024',
-      credentialId: 'IBM-ML-PY-072024',
       skills: ['Machine Learning', 'Python', 'Scikit-learn', 'Model Evaluation'],
       description: 'Professional certificate covering supervised and unsupervised learning algorithms, regression, classification, clustering techniques, and model deployment using Python and scikit-learn',
       pdfPath: '/certificates/ibm-ml-python.pdf'
@@ -42,7 +41,6 @@ const Certificates = () => {
       title: 'Introduction to Deep Learning & Neural Networks with Keras',
       issuer: 'IBM (Coursera)',
       date: 'June 2024',
-      credentialId: 'COURSERA-IBM-DL-062024',
       skills: ['Deep Learning', 'Keras', 'Neural Networks', 'Model Training'],
       description: 'Specialized course covering neural network fundamentals, backpropagation algorithms, convolutional neural networks, recurrent networks, and practical implementation using Keras framework',
       pdfPath: '/certificates/ibm-keras-coursera.pdf'
@@ -52,7 +50,6 @@ const Certificates = () => {
       title: 'Microsoft Certified: Azure AI Fundamentals',
       issuer: 'Microsoft',
       date: 'November 2024',
-      credentialId: 'AI-900-2024-11',
       skills: ['Azure AI Services', 'Machine Learning', 'Computer Vision', 'Natural Language Processing'],
       description: 'Official Microsoft certification demonstrating foundational knowledge of AI workloads, machine learning principles, computer vision capabilities, and conversational AI on Microsoft Azure platform',
       pdfPath: '/certificates/azure-ai-fundamentals.pdf'
@@ -62,10 +59,45 @@ const Certificates = () => {
       title: 'Getting Started with Deep Learning',
       issuer: 'NVIDIA Deep Learning Institute',
       date: 'August 2024',
-      credentialId: 'NVIDIA-DLI-2024-08',
       skills: ['Deep Learning', 'Neural Networks', 'TensorFlow', 'GPU Computing'],
       description: 'Hands-on workshop covering deep learning fundamentals, neural network architectures, training techniques, and practical implementation using NVIDIA GPU-accelerated computing',
       pdfPath: '/certificates/nvidia-deep-learning.pdf'
+    },
+    {
+      icon: <FaBrain />,
+      title: 'Develop Generative AI Applications: Get Started',
+      issuer: 'IBM (Coursera)',
+      date: 'March 2026',
+      skills: ['Generative AI', 'Prompt Engineering', 'AI Workflows'],
+      description: 'Introductory course on building generative AI applications, covering core concepts, responsible AI practices, and practical workflows for integrating foundation models into solutions',
+      pdfPath: '/certificates/ibm-develop-generative-ai.pdf'
+    },
+    {
+      icon: <FaBrain />,
+      title: 'Build RAG Applications: Get Started',
+      issuer: 'IBM (Coursera)',
+      date: 'March 2026',
+      skills: ['RAG', 'Retrievers', 'LLM Integration'],
+      description: 'Hands-on course focused on designing and implementing retrieval augmented generation (RAG) applications using large language models and custom knowledge sources',
+      pdfPath: '/certificates/ibm-build-rag-applications.pdf'
+    },
+    {
+      icon: <FaDatabase />,
+      title: 'Vector Databases for RAG: An Introduction',
+      issuer: 'IBM (Coursera)',
+      date: 'April 2026',
+      skills: ['Vector Databases', 'Embeddings', 'Similarity Search'],
+      description: 'Course introducing vector databases for retrieval augmented generation workloads, including embeddings, indexing strategies, and semantic similarity search',
+      pdfPath: '/certificates/ibm-vector-databases-intro.pdf'
+    },
+    {
+      icon: <FaDatabase />,
+      title: 'Advanced RAG with Vector Databases and Retrievers',
+      issuer: 'IBM (Coursera)',
+      date: 'April 2026',
+      skills: ['Advanced RAG', 'Vector Indexing', 'Hybrid Retrieval'],
+      description: 'Advanced course on building production-ready RAG systems using vector databases and retrievers, covering optimization, evaluation, and robust retrieval strategies',
+      pdfPath: '/certificates/ibm-advanced-rag-vector-databases.pdf'
     }
   ]
 
