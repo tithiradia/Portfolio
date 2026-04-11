@@ -77,15 +77,6 @@ const Footer = () => {
             </div>
           ))}
         </div>
-
-        <div className="footer-bottom">
-          <p className="footer-copyright">
-            © {currentYear} Portfolio. Made with <FaHeart className="heart-icon" /> by Tithi Radia
-          </p>
-          <p className="footer-credits">
-            All rights reserved.
-          </p>
-        </div>
       </div>
     </footer>
   )
